@@ -18,6 +18,8 @@ class Program
             Console.Write("Enter your choice: ");
             userInput = Console.ReadLine();
 
+
+            // https://www.youtube.com/watch?v=Qu93CRt-FGc(I looked up this video for more clarity)
             switch (userInput)
             {
                 case "1":
