@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Verify that constructors work as expected
         Fraction f1 = new Fraction();
         Console.WriteLine(f1.GetFractionString());  // 1/1
         Console.WriteLine(f1.GetDecimalValue());  // 1
