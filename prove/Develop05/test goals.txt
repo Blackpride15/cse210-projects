@@ -1,0 +1,3 @@
+0
+Simple Goal:; Dance; Dancing; 100; False
+Eternal Goal:; Studing The Scriptures; Learning; 200; False
