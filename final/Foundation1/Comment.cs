@@ -1,13 +1,18 @@
+using System;
+
 public class Comment
 {
-    // Attributes
-    public string Name { get; private set; }
-    public string Text { get; private set; }
+    public string _commenterName { get; set; }
+    public string _text { get; set; }
 
-    // Constructor
-    public Comment(string name, string text)
+    public Comment(string commenterName, string text)
     {
-        Name = name;
-        Text = text;
+        _commenterName = commenterName;
+        _text = text;
+    }
+
+    public override string ToString()
+    {
+        return $"{_commenterName}: {_text}";
     }
 }

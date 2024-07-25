@@ -1,32 +1,34 @@
+
 using System;
-using System.Collections.Generic;
 
 public class Video
 {
-    // Attributes
-    public string Title { get; private set; }
-    public string Author { get; private set; }
-    public int Length { get; private set; }
-    public List<Comment> Comments { get; private set; }
+    public string _title { get; set; }
+    public string _author { get; set; }
+    public int _duration { get; set; } 
+    private List<Comment> comments;
 
-    // Constructor
-    public Video(string title, string author, int length)
+    public Video(string title, string author, int duration)
     {
-        Title = title;
-        Author = author;
-        Length = length;
-        Comments = new List<Comment>();
+        _title = title;
+        _author = author;
+        _duration = duration;
+        comments = new List<Comment>();
     }
 
-    // Method to add a comment
     public void AddComment(Comment comment)
     {
-        Comments.Add(comment);
+        comments.Add(comment);
     }
 
-    // Method to get the number of comments
-    public int GetCommentCount()
+    public int NumberOfComments()
     {
-        return Comments.Count;
+        return comments.Count;
+    }
+
+    public override string ToString()
+    {
+        string videoComments = string.Join("\n", comments);
+        return $"Title: {_title}\nAuthor: {_author}\nDuration: {_duration} seconds\nNumber of comments: {NumberOfComments()}\nComments:\n{videoComments}\n";
     }
 }
