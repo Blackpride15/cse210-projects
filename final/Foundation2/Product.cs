@@ -1,44 +1,43 @@
+
+using System;
+
 public class Product
 {
-    // Private attributes
-    private string name;
-    private string productId;
-    private double price;
-    private int quantity;
+    private string _name;
+    private int _productID;
+    private double _price; //dollars
+    private int _quantity;
 
-    // Constructor
-    public Product(string name, string productId, double price, int quantity)
+    public Product(string name, int productId, double price, int quantity)
     {
-        this.name = name;
-        this.productId = productId;
-        this.price = price;
-        this.quantity = quantity;
+        this._name = name;
+        this._productID = productId;
+        this._price = price;
+        this._quantity = quantity;
     }
 
-    // Getter methods
+    public double GetTotalCost()
+    {
+        return _price * _quantity;
+    }
+
     public string GetName()
     {
-        return name;
+        return _name;
     }
 
-    public string GetProductId()
+    public int GetProductId()
     {
-        return productId;
+        return _productID;
     }
 
     public double GetPrice()
     {
-        return price;
+        return _price;
     }
 
     public int GetQuantity()
     {
-        return quantity;
-    }
-
-    // Method to get total cost of the product
-    public double GetTotalCost()
-    {
-        return price * quantity;
+        return _quantity;
     }
 }

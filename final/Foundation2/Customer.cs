@@ -1,30 +1,28 @@
+using System;
+
 public class Customer
 {
-    // Private attributes
-    private string name;
-    private Address address;
+    private string _name;
+    private Address _address;
 
-    // Constructor
     public Customer(string name, Address address)
     {
-        this.name = name;
-        this.address = address;
+        this._name = name; // 'this' improves code clarity
+        this._address = address;
     }
 
-    // Getter methods
+    public bool LocalUSA()
+    {
+        return _address.LocalUSA();
+    }
+
     public string GetName()
     {
-        return name;
+        return _name;
     }
 
-    public Address GetAddress()
+    public string GetAddress()
     {
-        return address;
-    }
-
-    // Method to check if customer lives in the USA
-    public bool IsInUSA()
-    {
-        return address.IsInUSA();
+        return _address.GetFullAddress();
     }
 }
