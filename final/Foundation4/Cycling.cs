@@ -1,33 +1,24 @@
-using System;
-
 public class Cycling : Activity
 {
-    private double speed; // in kilometers per hour
+    private double _speed; // in kph
 
-    public Cycling(DateTime date, int duration, double speed)
-        : base(date, duration)
+    public Cycling(string date, int duration, double speed) : base(date, duration)
     {
-        this.speed = speed;
+        _speed = speed;
     }
 
     public override double GetDistance()
     {
-        return (speed * Duration) / 60;
+        return (_speed * 0.621371) * (Duration / 60.0); // Convert km to miles
     }
 
     public override double GetSpeed()
     {
-        return speed;
+        return _speed * 0.621371; // Convert kph to mph
     }
 
     public override double GetPace()
     {
-        return 60 / speed;
-    }
-
-    public override string GetSummary()
-    {
-        return $"{Date.ToShortDateString()} Cycling ({Duration} min) - " +
-               $"Distance: {GetDistance():0.0} km, Speed: {GetSpeed():0.0} kph, Pace: {GetPace():0.0} min per km";
+        return Duration / GetDistance();
     }
 }

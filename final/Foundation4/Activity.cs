@@ -1,37 +1,42 @@
-using System;
-
-public class Activity
+public abstract class Activity
 {
-    private DateTime date;
-    private int duration; // in minutes
+    protected DateTime _date;
+    protected int _duration; // in minutes
 
-    public Activity(DateTime date, int duration)
+    public Activity(string date, int duration)
     {
-        this.date = date;
-        this.duration = duration;
+        _date = DateTime.Parse(date);
+        _duration = duration;
     }
 
-    public DateTime Date => date;
-    public int Duration => duration;
+    public string Date => FormatDate(_date);
+
+    public int Duration => _duration;
 
     public virtual double GetDistance()
     {
-        return 0;
+        return 0.0; // Default implementation
     }
 
     public virtual double GetSpeed()
     {
-        return 0;
+        return 0.0; // Default implementation
     }
 
     public virtual double GetPace()
     {
-        return 0;
+        return 0.0; // Default implementation
     }
 
     public virtual string GetSummary()
     {
-        return $"{date.ToShortDateString()} {GetType().Name} ({duration} min) - " +
-               $"Distance: {GetDistance():0.0} km, Speed: {GetSpeed():0.0} kph, Pace: {GetPace():0.0} min per km";
+        return $"{Date} {GetType().Name} ({Duration} min) - Distance: {GetDistance():F1} miles, Speed: {GetSpeed():F1} mph, Pace: {GetPace():F1} min per mile\n";
+    }
+
+    private string FormatDate(DateTime date)
+    {
+        string month = date.ToString("MMM");
+        month = char.ToUpper(month[0]) + month.Substring(1);
+        return $"{date:dd} {month} {date:yyyy}";
     }
 }

@@ -1,33 +1,24 @@
-using System;
-
 public class Swimming : Activity
 {
-    private int laps; // number of laps
+    private int _laps;
 
-    public Swimming(DateTime date, int duration, int laps)
-        : base(date, duration)
+    public Swimming(string date, int duration, int laps) : base(date, duration)
     {
-        this.laps = laps;
+        _laps = laps;
     }
 
     public override double GetDistance()
     {
-        return laps * 50 / 1000.0;
+        return (_laps * 50 / 1000.0) * 0.621371; // Convert meters to miles
     }
 
     public override double GetSpeed()
     {
-        return (GetDistance() / Duration) * 60;
+        return GetDistance() / (Duration / 60.0);
     }
 
     public override double GetPace()
     {
         return Duration / GetDistance();
-    }
-
-    public override string GetSummary()
-    {
-        return $"{Date.ToShortDateString()} Swimming ({Duration} min) - " +
-               $"Distance: {GetDistance():0.0} km, Speed: {GetSpeed():0.0} kph, Pace: {GetPace():0.0} min per km";
     }
 }
