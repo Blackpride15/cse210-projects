@@ -1,22 +1,20 @@
-using System;
-
 public class Address
 {
-    private string streetAddress;
-    private string city;
-    private string state;
-    private string country;
+    private string _street;
+    private string _city;
+    private string _state;
+    private string _country;
 
-    public Address(string streetAddress, string city, string state, string country)
+    public Address(string street, string city, string state, string country)
     {
-        this.streetAddress = streetAddress;
-        this.city = city;
-        this.state = state;
-        this.country = country;
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
     }
 
-    public string GetAddressString()
+    public string GetFullAddress()
     {
-        return $"{streetAddress}, {city}, {state}, {country}";
+        return $"{_street}, {_city}, {_state}, {_country}";
     }
 }
